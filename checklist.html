@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A-Level Maths Revision Checklist — printable, saves in your browser</title>
+<meta name="description" content="Free A-Level Maths revision checklist, topic by topic (Pure, Statistics, Mechanics). Rate each topic red, amber or green, print it, no sign-up. From Korra.Study.">
+<style>
+  :root { --red:#d94848; --amber:#e3a008; --green:#2e9e5b; --ink:#1b1b1f; --muted:#666; --line:#ddd; }
+  * { box-sizing:border-box; }
+  body { font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); margin:0; background:#fafafa; }
+  main { max-width:860px; margin:0 auto; padding:24px 20px 60px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; }
+  .bar { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:12px 0 20px; }
+  button { font:inherit; padding:8px 14px; border:1px solid #bbb; border-radius:6px; background:#fff; cursor:pointer; }
+  button:hover { background:#f0f0f0; }
+  .legend { display:flex; gap:14px; flex-wrap:wrap; margin-left:auto; font-size:.9rem; color:var(--muted); }
+  .legend span::before { content:""; display:inline-block; width:12px; height:12px; border-radius:50%; margin-right:5px; vertical-align:-1px; }
+  .legend .r::before { background:var(--red); } .legend .a::before { background:var(--amber); } .legend .g::before { background:var(--green); }
+  .summary { font-size:.95rem; margin:0 0 18px; }
+  h2 { font-size:1.25rem; margin:28px 0 6px; border-bottom:2px solid var(--ink); padding-bottom:4px; }
+  h3 { font-size:1.05rem; margin:16px 0 6px; display:flex; justify-content:space-between; }
+  h3 small { color:var(--muted); font-weight:normal; font-size:.85rem; }
+  ul { list-style:none; margin:0; padding:0; }
+  li { display:flex; gap:10px; align-items:flex-start; padding:7px 8px; border-bottom:1px solid var(--line); cursor:pointer; user-select:none; background:#fff; }
+  li:hover { background:#f4f4f4; }
+  .dot { flex:0 0 18px; height:18px; border-radius:50%; border:2px solid #999; margin-top:4px; background:#fff; }
+  li[data-s="1"] .dot { background:var(--red); border-color:var(--red); }
+  li[data-s="2"] .dot { background:var(--amber); border-color:var(--amber); }
+  li[data-s="3"] .dot { background:var(--green); border-color:var(--green); }
+  li[data-s="3"] .name { color:var(--muted); }
+  .name b { font-weight:600; }
+  .name { flex:1; }
+  .date { flex:0 0 auto; font-size:.8rem; color:var(--muted); margin-top:5px; }
+  footer { margin-top:40px; font-size:.85rem; color:var(--muted); border-top:1px solid var(--line); padding-top:12px; }
+  footer a { color:inherit; }
+  @media print {
+    body { background:#fff; font-size:12px; }
+    main { max-width:none; padding:0; }
+    .bar, .legend, footer .noprint { display:none; }
+    li { break-inside:avoid; padding:3px 0; }
+    h2 { break-after:avoid; }
+    .dot { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>A-Level Maths Revision Checklist</h1>
+  <p class="sub">Every topic in the Pure, Statistics and Mechanics content shared by AQA, Edexcel, OCR and OCR MEI. Click a topic to rate it. Ratings save in this browser only.</p>
+
+  <div class="bar">
+    <button type="button" onclick="window.print()">Print / save as PDF</button>
+    <button type="button" id="reset">Reset all</button>
+    <div class="legend"><span class="r">Red: can't do it</span><span class="a">Amber: with notes or hints</span><span class="g">Green: unaided, timed, twice</span></div>
+  </div>
+
+  <p class="summary" id="summary"></p>
+  <div id="list"></div>
+
+  <footer>
+    <p>Green means correct, unaided, under timed conditions, on two different days. Right once is amber with a note to re-test. Ratings can go down as well as up.</p>
+    <p class="noprint">Free from <a href="https://korra.academy/">Korra Academy</a> · live online A-Level tutoring at <a href="https://korra.study/">korra.study</a> · source and printable Markdown list on <a href="https://github.com/korra-academy/a-level-maths-revision-checklist">GitHub</a>. MIT licensed.</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var DATA = [
+    ["Year 1 / AS — Pure Mathematics", [
+      ["Proof", "deduction, exhaustion, disproof by counter-example"],
+      ["Indices and surds", "laws of indices, rationalising denominators"],
+      ["Quadratics", "completing the square, discriminant, graphs, inequalities"],
+      ["Simultaneous equations", "linear/linear and linear/quadratic"],
+      ["Inequalities", "linear and quadratic, set notation, regions"],
+      ["Polynomials", "expanding, factorising, factor theorem, algebraic division"],
+      ["Graphs and transformations", "cubics, quartics, reciprocals; translations and stretches"],
+      ["Straight lines", "gradient, parallel and perpendicular, equation forms"],
+      ["Circles", "equation, tangents, chords, perpendicular bisectors"],
+      ["Binomial expansion", "positive integer powers, nCr"],
+      ["Trigonometry", "sine and cosine rules, area of a triangle, graphs"],
+      ["Trig identities and equations", "tan = sin/cos, sin² + cos² = 1, solving in an interval"],
+      ["Exponentials and logarithms", "e^x, laws of logs, a^x = b, growth and decay, log graphs"],
+      ["Differentiation", "first principles, powers of x, tangents, normals, stationary points"],
+      ["Integration", "reverse of differentiation, definite integrals, area under a curve"],
+      ["Vectors in 2D", "magnitude, direction, position vectors, vector geometry"]
+    ]],
+    ["Year 1 / AS — Statistics", [
+      ["Sampling", "random, systematic, stratified, quota, opportunity"],
+      ["Data presentation", "histograms, box plots, cumulative frequency, scatter, outliers"],
+      ["Location and spread", "mean, median, quartiles, variance, standard deviation, coding"],
+      ["Probability", "Venn and tree diagrams, mutually exclusive, independent"],
+      ["Discrete distributions", "discrete uniform, binomial and when it applies"],
+      ["Hypothesis testing (binomial)", "hypotheses, significance level, one/two-tailed, critical regions"],
+      ["Large data set", "structure of your board's data set, typical questions"]
+    ]],
+    ["Year 1 / AS — Mechanics", [
+      ["Quantities and units", "SI units, modelling assumptions"],
+      ["Constant acceleration", "suvat, vertical motion under gravity"],
+      ["Motion graphs", "displacement-time, velocity-time, gradient and area"],
+      ["Variable acceleration", "differentiating and integrating with respect to time"],
+      ["Forces and Newton's laws", "F = ma, weight, reaction, tension, connected particles, pulleys"]
+    ]],
+    ["Year 2 / A2 — Pure Mathematics", [
+      ["Proof by contradiction", "irrationality of √2, infinitely many primes"],
+      ["Algebraic and partial fractions", "simplifying, splitting into partial fractions"],
+      ["Functions", "domain, range, composite, inverse, modulus"],
+      ["Further transformations", "combined transformations, modulus graphs"],
+      ["Parametric equations", "to Cartesian form, parametric differentiation"],
+      ["Binomial expansion (rational n)", "validity, approximations, with partial fractions"],
+      ["Sequences and series", "arithmetic, geometric, sum to infinity, sigma, recurrence"],
+      ["Radians", "arc length, sector area, small-angle approximations"],
+      ["Reciprocal and inverse trig", "sec, cosec, cot, arcsin, arccos, arctan"],
+      ["Trig identities (Year 2)", "1 + tan² = sec², addition and double-angle formulae, R cos(x − α)"],
+      ["Differentiation (Year 2)", "chain, product, quotient; trig, exp, log; implicit; rates of change"],
+      ["Integration (Year 2)", "standard functions, substitution, by parts, partial fractions, areas"],
+      ["Differential equations", "separating variables, growth and decay models"],
+      ["Numerical methods", "change of sign, iteration, Newton–Raphson, trapezium rule"],
+      ["Vectors in 3D", "magnitude, distance between points, geometric problems"]
+    ]],
+    ["Year 2 / A2 — Statistics", [
+      ["Regression and correlation", "regression lines, PMCC, hypothesis test for correlation"],
+      ["Conditional probability", "P(A|B), two-way tables, modelling assumptions"],
+      ["Normal distribution", "standardising, finding μ and σ, approximation to the binomial"],
+      ["Hypothesis testing (normal)", "testing a sample mean"]
+    ]],
+    ["Year 2 / A2 — Mechanics", [
+      ["Moments", "turning effect, equilibrium of rigid bodies, uniform rods"],
+      ["Forces at angles", "resolving, inclined planes, friction, coefficient of friction"],
+      ["Projectiles", "components, time of flight, range, maximum height"],
+      ["Kinematics in 2D", "suvat with vectors, variable acceleration with vectors"],
+      ["Applications of Newton's laws", "connected particles on slopes, pulleys with friction"]
+    ]]
+  ];
+
+  var KEY = "korra-alevel-maths-checklist-v1";
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { state = {}; }
+
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function today() { return new Date().toISOString().slice(0, 10); }
+
+  var list = document.getElementById("list");
+  var summary = document.getElementById("summary");
+
+  function render() {
+    list.innerHTML = "";
+    var counts = [0, 0, 0, 0];
+    DATA.forEach(function (section, si) {
+      var h = document.createElement("h3");
+      var secCounts = [0, 0, 0, 0];
+      var ul = document.createElement("ul");
+      section[1].forEach(function (topic, ti) {
+        var id = si + ":" + ti;
+        var entry = state[id] || { s: 0, d: "" };
+        counts[entry.s]++; secCounts[entry.s]++;
+        var li = document.createElement("li");
+        li.setAttribute("data-s", entry.s);
+        li.setAttribute("role", "button");
+        li.setAttribute("tabindex", "0");
+        li.setAttribute("aria-label", topic[0] + ", rated " + ["not rated", "red", "amber", "green"][entry.s]);
+        li.innerHTML = '<span class="dot"></span><span class="name"><b>' + esc(topic[0]) + '</b> — ' + esc(topic[1]) + '</span><span class="date">' + esc(entry.d) + '</span>';
+        function cycle() {
+          var next = (entry.s + 1) % 4;
+          state[id] = next === 0 ? { s: 0, d: "" } : { s: next, d: today() };
+          save(); render();
+        }
+        li.addEventListener("click", cycle);
+        li.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); cycle(); } });
+        ul.appendChild(li);
+      });
+      h.innerHTML = esc(section[0]) + "<small>" + secCounts[3] + " / " + section[1].length + " green</small>";
+      list.appendChild(h);
+      list.appendChild(ul);
+    });
+    var total = counts[0] + counts[1] + counts[2] + counts[3];
+    summary.textContent = total + " topics: " + counts[3] + " green, " + counts[2] + " amber, " + counts[1] + " red, " + counts[0] + " not rated yet.";
+  }
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  document.getElementById("reset").addEventListener("click", function () {
+    if (confirm("Clear every rating on this checklist?")) { state = {}; save(); render(); }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
